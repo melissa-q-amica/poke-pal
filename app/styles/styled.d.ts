@@ -4,12 +4,16 @@ declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
       bg: string;
+      surface: string;
       text: string;
-      card: string;
+      subtext: string;
       accent: string;
-      accentDark: string;
+      accent2: string;
+      accent3: string;
+      border: string;
     };
     radius: string;
     spacing: (n: number) => string;
   }
 }
+

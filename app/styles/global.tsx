@@ -1,28 +1,27 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  :root { color-scheme: light; }
-  *, *::before, *::after { box-sizing: border-box; }
-
-  html, body, #root { height: 100%; }
-
   body {
     margin: 0;
-    background: ${({ theme }) => theme.colors.bg};
+    padding: 0;
+    font-family: 'Inter', 'Avenir', 'Helvetica', sans-serif;
+    background-color: ${({ theme }) => theme.colors.bg};
     color: ${({ theme }) => theme.colors.text};
-    font-family: ui-rounded, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   a {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.accent2};
     text-decoration: none;
   }
 
+  a:hover {
+    color: ${({ theme }) => theme.colors.accent3};
+  }
+
   button {
-    font: inherit;
-    border: 0;
+    font-family: inherit;
+    border-radius: ${({ theme }) => theme.radius};
     cursor: pointer;
   }
 `;
