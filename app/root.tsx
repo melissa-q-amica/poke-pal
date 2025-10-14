@@ -4,6 +4,7 @@ import { queryClient } from "lib/query";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./styles/global";
 import { theme } from "./styles/theme";
+import { FavoritesProvider } from "app/contexts/FavoritesContext";
 
 
 export default function App() {
@@ -20,7 +21,9 @@ export default function App() {
         <QueryClientProvider client={queryClient}>
           <ThemeProvider theme={theme}>
             <GlobalStyle />
-            <Outlet />
+            <FavoritesProvider>
+              <Outlet />
+            </FavoritesProvider>
           </ThemeProvider>
         </QueryClientProvider>
         <ScrollRestoration />
