@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import styled from "styled-components";
 import { getPokemon } from "lib/pokeapi";
+import { useFavorites } from "app/contexts/FavoritesContext";
 
 const Wrap = styled.main` padding: ${({ theme }) => theme.spacing(2)}; `;
 const Img = styled.img`
@@ -17,17 +18,22 @@ export default function PokemonDetail() {
     queryFn: () => getPokemon(name),
   });
 
+  const { has, toggle } = useFavorites();
   if (isLoading) return <Wrap>Loading…</Wrap>;
   if (isError || !data) return <Wrap>Couldn’t load {name}. {(error as Error)?.message}</Wrap>;
 
-  const types = data.types?.map((t: any) => t.type.name).join(", ") ?? "unknown";
+  const fav = has(data.name);
 
   return (
     <Wrap>
       <Link to="..">← Back</Link>
       <h2 style={{ textTransform: "capitalize" }}>{data.name}</h2>
       <Img alt={data.name} src={data.sprites?.front_default ?? ""} />
-      <p>Types: {types}</p>
+      <p>Types: {data.types?.map((t: any) => t.type.name).join(", ")}</p>
+
+      <button onClick={() => toggle(data.name)} aria-pressed={fav} aria-label={fav ? "Remove from favorites" : "Add to favorites"}>
+        {fav ? "💔 Remove Favorite" : "💖 Add to Favorites"}
+      </button>
     </Wrap>
   );
 }
