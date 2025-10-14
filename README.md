@@ -1,87 +1,74 @@
-# Welcome to React Router!
+# PokéPal
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+PokéPal is a simple React Router + Vite project that uses the PokéAPI to display a list of Pokémon.  
+Users can browse, view details, and favorite their Pokémon using global state management and local caching.
 
 ---
 
-Built with ❤️ using React Router.
+## 🧩 Project Overview
+
+This project demonstrates:
+- Functional components with the **Single Responsibility Principle**
+- Routing with **React Router (framework mode)**
+- Data caching using **@tanstack/react-query**
+- Styling with **styled-components**
+- Global state management via **React Context**
+- Hot reloading with Vite
+
+---
+
+## 🛠 Installation & Setup
+
+### Prerequisites
+- **Node.js v20.12.0 or higher**
+- **Yarn v4+** (Corepack recommended)
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/melissa-q-amica/poke-pal.git
+cd poke-pal
+```
+
+### 2. Install dependencies
+```bash
+yarn install
+```
+
+### 3. Start the development server
+```bash
+yarn dev
+```
+
+### 4. Open the app
+Visit:
+```
+http://localhost:5173
+```
+
+If you encounter optimization or cache errors, clear the Vite dev cache:
+```bash
+rm -rf node_modules/.vite .react-router
+yarn dev --force
+```
+
+---
+
+## 🧱 Scripts
+
+| Command | Description |
+|----------|-------------|
+| `yarn dev` | Start the app in development mode |
+
+---
+
+## 📦 Tech Stack
+- **React Router v7 (framework mode)**
+- **Vite**
+- **React Query**
+- **styled-components**
+- **React Context API**
+
+---
+
+## 📄 License
+MIT License — free to use and modify.
