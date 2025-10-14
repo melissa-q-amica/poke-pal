@@ -1,4 +1,8 @@
 import { Outlet, Scripts, ScrollRestoration } from "react-router";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./styles/global";
+import { theme } from "./styles/theme";
+
 
 export default function App() {
   return (
@@ -9,7 +13,10 @@ export default function App() {
         <title>PokéPal</title>
       </head>
       <body>
-        <Outlet />
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Outlet />
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
