@@ -1,5 +1,6 @@
 {
   "name": "poke-pal",
+  "description": "A small learning project demonstrating React, React Router, styled-components, and react-query patterns.",
   "private": true,
   "type": "module",
   "scripts": {

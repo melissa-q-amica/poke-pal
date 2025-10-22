@@ -1,3 +1,8 @@
+// TypeScript configuration tailored for this learning project.
+// Important notes for learners:
+// - `paths` + `baseUrl` enable nicer import aliases (eg: `import x from 'lib/x'`).
+// - `jsx: react-jsx` uses the new automatic runtime for JSX (no React import needed).
+// - `noEmit: true` is common in dev setups where bundlers handle output.
 {
   "include": [
     "app",

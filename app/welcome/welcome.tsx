@@ -1,6 +1,13 @@
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 
+/**
+ * Welcome screen
+ *
+ * A static landing component demonstrating usage of image assets imported
+ * directly into React components (Vite handles these imports). This is a good
+ * place to learn about bundling static files and providing light/dark variants.
+ */
 export function Welcome() {
   return (
     <main className="flex items-center justify-center pt-16 pb-4">

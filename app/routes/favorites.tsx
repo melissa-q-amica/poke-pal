@@ -14,6 +14,11 @@ export default function Favorites() {
   return (
     <main style={{ padding: 16 }}>
       <h1>My Favorites</h1>
+      {/*
+        Conditional rendering pattern: show an empty state when there are no
+        favorites (a friendly UX touch), otherwise map over favorites to render
+        links to the detail page.
+      */}
       {favorites.length === 0 ? (
         <p>No favorites yet. Go add some 💖</p>
       ) : (

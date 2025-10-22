@@ -19,6 +19,10 @@ export default function PokemonDetail() {
   });
 
   const { has, toggle } = useFavorites();
+  // Handle loading and error states: react-query exposes helpers that make
+  // handling these scenarios straightforward. Learners should notice how the
+  // same getPokemon helper is used here as in home pagination, demonstrating
+  // reuse of fetch logic.
   if (isLoading) return <Wrap>Loading…</Wrap>;
   if (isError || !data) return <Wrap>Couldn’t load {name}. {(error as Error)?.message}</Wrap>;
 

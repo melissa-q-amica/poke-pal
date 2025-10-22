@@ -1,4 +1,17 @@
-import styled, { css } from "styled-components";
+
+/**
+ * Reusable UI primitives using styled-components
+ *
+ * These are small, theme-aware building blocks used throughout the app:
+ * - Card: a simple container with border, padding and hover styles
+ * - Button: primary action style using the theme accent colors
+ *
+ * For learners: styled-components lets you access the `theme` object via a
+ * function interpolation (`${({ theme }) => theme.colors.accent}`) and keeps
+ * styles colocated with component logic. This file demonstrates reusability
+ * and theming best practices.
+ */
+import styled from "styled-components";
 import { BorderRadius } from "styles/Base";
 
 export const Card = styled.article`

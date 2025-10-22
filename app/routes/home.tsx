@@ -15,11 +15,15 @@ const Grid = styled.section`
 
 export default function Home() {
   const [page, setPage] = useState(0);
-
+  // useQuery manages fetching, caching and background updates for us.
+  // - queryKey identifies the data uniquely (here: page number)
+  // - queryFn performs the actual fetch (see app/lib/pokeapi.ts)
   const { data, isFetching, isError, error } = useQuery<PokemonListResponse>({
     queryKey: ["pokemon", page],
     queryFn: () => getPokemonPage(page),
-    // v5 way to keep previous page visible while the next loads:
+    // keepPreviousData (placeholderData) prevents UI flicker while the next
+    // page is loading by retaining the previous page data until the new
+    // results arrive. This is helpful for pagination UX.
     placeholderData: keepPreviousData,
     staleTime: 60_000,
   });
