@@ -9,10 +9,14 @@ const List = styled.ul`
   gap: ${({ theme }) => theme.spacing(1)};
 `;
 
+const Main = styled.main`
+  padding: ${({ theme }) => theme.spacing(2)};
+`;
+
 export default function Favorites() {
   const { favorites } = useFavorites();
   return (
-    <main style={{ padding: 16 }}>
+    <Main>
       <h1>My Favorites</h1>
       {/*
         Conditional rendering pattern: show an empty state when there are no
@@ -31,6 +35,6 @@ export default function Favorites() {
         </List>
       )}
       <p style={{ marginTop: 16 }}><Link to="/">← Back to list</Link></p>
-    </main>
+    </Main>
   );
 }

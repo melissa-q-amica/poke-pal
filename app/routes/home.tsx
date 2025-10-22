@@ -10,7 +10,29 @@ const Grid = styled.section`
   display: grid;
   gap: ${({ theme }) => theme.spacing(2)};
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+`;
+
+const Main = styled.main`
   padding: ${({ theme }) => theme.spacing(2)};
+`;
+
+const Nav = styled.nav`
+  margin-bottom: ${({ theme }) => theme.spacing(2)};
+`;
+
+const Controls = styled.div`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing(1)};
+  padding: ${({ theme }) => theme.spacing(2)};
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  /* align with the inner content of Card which uses theme.spacing(2) padding */
+  padding-left: ${({ theme }) => theme.spacing(2)};
+`;
+
+const Fetching = styled.span`
+  margin-left: ${({ theme }) => theme.spacing(1)};
 `;
 
 export default function Home() {
@@ -31,18 +53,20 @@ export default function Home() {
 
   if (isError) {
     return (
-      <main style={{ padding: 16 }}>
+      <Main>
         <h1>PokéPal</h1>
         <p>Oh no! Couldn’t load Pokémon. {(error as Error)?.message}</p>
-      </main>
+      </Main>
     );
   }
 
   return (
-    <main>
+    <Main>
       <h1>PokéPal</h1>
       <p>Welcome! Browse and favorite cute Pokémon ✨</p>
-      <nav><Link to="/favorites">Favorites</Link></nav>
+      <Nav>
+        <Link to="/favorites">Favorites</Link>
+      </Nav>
 
       <Grid>
         {data?.results?.map((p) => {
@@ -58,11 +82,11 @@ export default function Home() {
         })}
       </Grid>
 
-      <div style={{ display: "flex", gap: 8, padding: 16 }}>
+      <Controls>
         <Button disabled={page === 0 || isFetching} onClick={() => setPage((p) => p - 1)}>Prev</Button>
         <Button disabled={!data?.next || isFetching} onClick={() => setPage((p) => p + 1)}>Next</Button>
-        {isFetching && <span style={{ marginLeft: 8 }}>Jigglypuff is fetching data…</span>}
-      </div>
-    </main>
+        {isFetching && <Fetching>Jigglypuff is fetching data…</Fetching>}
+      </Controls>
+    </Main>
   );
 }
