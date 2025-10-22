@@ -23,6 +23,19 @@ This project demonstrates:
 - **Node.js v20.12.0 or higher**
 - **Yarn v4+** (Corepack recommended)
 
+#### Use nvm to install Node (recommended)
+
+If you use `nvm` to manage Node versions, run the following to install and use the exact version this project was developed with:
+
+```bash
+# install Node v20.12.0 if you don't have it
+nvm install 20.12.0
+# switch to Node v20.12.0 for this shell
+nvm use 20.12.0
+# verify
+node -v
+```
+
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/melissa-q-amica/poke-pal.git
@@ -72,3 +85,31 @@ yarn dev --force
 
 ## 📄 License
 MIT License — free to use and modify.
+
+---
+
+## 🛠️ Troubleshooting (Safari-specific)
+
+If the app doesn't load correctly in Safari (you may see errors like "Outdated Optimize Dep" or cached files being used), try the following steps:
+
+1. Enable the Develop menu in Safari (if not already enabled):
+	- Open Safari Preferences → Advanced → check "Show Develop menu in menu bar".
+
+2. Empty Caches:
+	- From the menu bar choose Develop → Empty Caches.
+	- This forces Safari to drop any cached dev server files that can cause stale optimized dependency responses.
+
+3. Disable the Page Cache while testing (optional):
+	- In the Develop menu, ensure "Disable Page Cache" (or "Use Page Cache") is set so Safari will always fetch fresh resources during development.
+
+4. Hard reload the page:
+	- Press Option+Command+R to perform a hard reload.
+
+If issues persist, delete Vite's dev cache and restart the dev server:
+
+```bash
+rm -rf node_modules/.vite
+yarn dev
+```
+
+These steps fix the majority of caching-related issues you may see while developing with Vite and Safari.
