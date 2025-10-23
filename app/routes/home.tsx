@@ -28,7 +28,7 @@ const Controls = styled.div`
   justify-content: flex-start;
   width: 100%;
   /* align with the inner content of Card which uses theme.spacing(2) padding */
-  padding-left: ${({ theme }) => theme.spacing(2)};
+  padding-left: ${({ theme }) => theme.spacing(0)};
 `;
 
 const Fetching = styled.span`
